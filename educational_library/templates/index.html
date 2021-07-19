@@ -1,0 +1,33 @@
+{% extends 'bootstrap/base.html' %}
+{% block title %}
+    Educational Library
+{% endblock %}
+{% block navbar %}
+
+{% endblock %}
+{% block content %}
+<div class="jumbotron" style="background-color: #D7EDF5;">
+  <h1 style="text-align:center; color: #3498DB;">Educational Library</h1>
+</div>
+{% if books_query.count() == 0: %}
+    <p>Library is empty.</p>
+{% else: %}
+    {% for book in books_query.all(): %}
+        <div class="col-sm-4">
+            <div class="panel panel-default">
+              <div class="panel-heading">{{ book.title }}</div>
+              <div class="panel-body">
+                  {{ "By: " + book.author + ", rated: " + book.rating|string + "/10" }}
+              </div>
+              <div class="panel-footer">
+                  <a href="{{ url_for('delete', id=book.id) }}">Delete</a>
+                <a href="{{ url_for('edit', id=book.id) }}">Edit Rating</a>
+              </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endif %}
+<div class="col-sm-12">
+    <a href="{{ url_for('add') }}">Add New Book</a>
+</div>
+{% endblock %}
