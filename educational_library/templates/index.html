@@ -1,33 +1,48 @@
-{% extends 'bootstrap/base.html' %}
-{% block title %}
-    Educational Library
-{% endblock %}
-{% block navbar %}
+{% extends 'base.html' %}
 
+{% block title %}
+Educational Library
 {% endblock %}
+
 {% block content %}
-<div class="jumbotron" style="background-color: #D7EDF5;">
+<!--
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+  <div class="container-fluid">
+
+
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+
+  </div>
+</nav>
+-->
+<div class="container-fluid" style="background-color: #D7EDF5;">
   <h1 style="text-align:center; color: #3498DB;">Educational Library</h1>
 </div>
 {% if books_query.count() == 0: %}
     <p>Library is empty.</p>
 {% else: %}
-    {% for book in books_query.all(): %}
-        <div class="col-sm-4">
-            <div class="panel panel-default">
-              <div class="panel-heading">{{ book.title }}</div>
-              <div class="panel-body">
-                  {{ "By: " + book.author + ", rated: " + book.rating|string + "/10" }}
-              </div>
-              <div class="panel-footer">
-                  <a href="{{ url_for('delete', id=book.id) }}">Delete</a>
-                <a href="{{ url_for('edit', id=book.id) }}">Edit Rating</a>
-              </div>
+    <div class="row" style="padding-left: 7%; padding-right: 7%; padding-top: 2%;">
+        {% for book in books_query.all(): %}
+            <div class="col-lg-2 col-md-3 col-sm-4 col-6">
+                <div class="card">
+                    <img src="../static/images/MathBook.jpg" class="card-img-top" alt="math book">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ book.title }}</h5>
+                        <p class="card-text">{{ "By: " + book.author + ", rated: " + book.rating|string + "/10" }}</p>
+                        <a class="btn btn-primary" href="{{ url_for('delete', id=book.id) }}">Delete</a>
+                        <a class="btn btn-primary" href="{{ url_for('edit', id=book.id) }}">Edit Rating</a>
+                    </div>
+                </div>
             </div>
-        </div>
-    {% endfor %}
+        {% endfor %}
+    </div>
 {% endif %}
-<div class="col-sm-12">
-    <a href="{{ url_for('add') }}">Add New Book</a>
+<div class="container-fluid" style="height: 8vh">
+</div>
+<div class="d-grid fixed-bottom" style="height: 8vh;">
+    <a class="btn btn-primary" href="{{ url_for('add') }}">Add New Book</a>
 </div>
 {% endblock %}
