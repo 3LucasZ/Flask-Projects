@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block styles %}
+  <link rel="stylesheet" href="../static/main-page-style.css">
+{% endblock %}
+
+{% block title %}
+Educational Library Homepage
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <h1 class="bottom-border center-text">About</h1>
+  <h4 class="center-text">Welcome to the Educational Library Website!</h4>
+  <p class="center-text">Find and add the best books available for education.
+     You can choose between using our webpage or our api to add or get book info.</p>
+</div>
+
+<div class="divider"></div>
+
+<div class="container">
+<div class="row">
+  <div class="col-6">
+    <h1>Web</h1>
+    <p>Use the web interface to add, edit, and get books!</p>
+    <a href="{{ url_for('web.get_all') }}">Web Home</a>
+  </div>
+  <div class="col-6">
+    <h1>API</h1>
+    <p>Use the API to add, edit, and get books!</p>
+    <a href="{{ url_for('API.home') }}">Web Home</a>
+  </div>
+</div>
+</div>
+{% endblock %}

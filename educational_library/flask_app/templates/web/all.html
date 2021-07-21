@@ -18,9 +18,6 @@ Educational Library
   </div>
 </nav>
 -->
-<div class="container-fluid" style="background-color: #D7EDF5;">
-  <h1 style="text-align:center; color: #3498DB;">Educational Library</h1>
-</div>
 {% if books_query.count() == 0: %}
     <p>Library is empty.</p>
 {% else: %}
@@ -32,17 +29,17 @@ Educational Library
                     <div class="card-body">
                         <h5 class="card-title">{{ book.title }}</h5>
                         <p class="card-text">{{ "By: " + book.author + ", rated: " + book.rating|string + "/10" }}</p>
-                        <a class="btn btn-primary" href="{{ url_for('delete', id=book.id) }}">Delete</a>
-                        <a class="btn btn-primary" href="{{ url_for('edit', id=book.id) }}">Edit Rating</a>
+                        <a class="btn btn-primary" href="{{ url_for('web.delete', id=book.id) }}">Delete</a>
+                        <a class="btn btn-primary" href="{{ url_for('web.edit', id=book.id) }}">Edit Rating</a>
                     </div>
                 </div>
             </div>
         {% endfor %}
     </div>
 {% endif %}
-<div class="container-fluid" style="height: 8vh">
+<div class="container-fluid" style="height: 10vh">
 </div>
-<div class="d-grid fixed-bottom" style="height: 8vh;">
-    <a class="btn btn-primary" href="{{ url_for('add') }}">Add New Book</a>
+<div class="d-grid fixed-bottom">
+    <a class="btn btn-primary" href="{{ url_for('web.add') }}"><h3>Add New Book</h3></a>
 </div>
 {% endblock %}
