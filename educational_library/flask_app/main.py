@@ -14,6 +14,7 @@ class EduBook(db.Model):
     title = db.Column(db.String(100), unique=True, nullable=False)
     author = db.Column(db.String(80), nullable=False)
     rating = db.Column(db.Float, nullable=False)
+    category = db.Column(db.String(50), nullable=False)
 
     def to_dict(self):
         dictionary = {}

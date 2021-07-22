@@ -17,10 +17,11 @@ def add():
         book = EduBook(
             title=request.form["title"],
             author=request.form["author"],
-            rating=request.form["rating"])
+            rating=request.form["rating"],
+            category=request.form["category"])
         db.session.add(book)
         db.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('web.get_all'))
     return render_template("web/add.html")
 
 
@@ -31,7 +32,7 @@ def edit():
         book = EduBook.query.get(request.form['id'])
         book.rating = request.form['new_rating']
         db.session.commit()
-        return redirect(url_for('home'))
+        return redirect(url_for('web.get_all'))
     # when form is accessed
     # get  passed
     id = request.args.get('id')
@@ -44,4 +45,4 @@ def delete():
     book = EduBook.query.get(id)
     db.session.delete(book)
     db.session.commit()
-    return redirect(url_for('home'))
+    return redirect(url_for('web.get_all'))

@@ -25,7 +25,7 @@ Educational Library
         {% for book in books_query.all(): %}
             <div class="col-lg-2 col-md-3 col-sm-4 col-6">
                 <div class="card">
-                    <img src="../static/images/MathBook.jpg" class="card-img-top" alt="math book">
+                    <img src="{{ '../../static/images/' + book.category + 'Book.jpg' }}" class="card-img-top" alt="book pic">
                     <div class="card-body">
                         <h5 class="card-title">{{ book.title }}</h5>
                         <p class="card-text">{{ "By: " + book.author + ", rated: " + book.rating|string + "/10" }}</p>
