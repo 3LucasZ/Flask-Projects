@@ -1,10 +1,11 @@
 # Flask-Projects
-A collection of back-end experiments, tutorials, and projects.
-Back-end using the Flask Framework and Python3 language.
-API-testing using Postman.
-Databases using SQLite and Flask_SQLAlchemy.
+Flask Projects using the HTTP protocol. 
+My other repository, with Flask Projects using websockets: https://github.com/3LucasZ/MultiplayerGames
 
-Helpful tips:
-Before using these scripts, please have all the needed python libraries (listed on the top of each python file) installed.
-PyCharm and VSCode are best for editing and using these scripts.
-DB Browser for SQLite App is best for viewing the sqlite database.
+A few (currently 2) experiments and projects.
+
+Note before using:
+- Recommended to use a virtual environment
+- please have all the needed python libraries (listed on requirements.txt) installed.
+- PyCharm and VSCode are best for editing and using this code.
+- DB Browser for SQLite App is best for viewing the sqlite database.

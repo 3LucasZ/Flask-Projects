@@ -8,4 +8,4 @@ Then run main.py. In the terminal it should say what IP address to visit to acce
 
 How to use:
 You can add books, change book settings, and more to keep track of the best educational books on the market!
-Data will be saved on a database and served to all users.
+Data will be saved on a database and served to all users. Public API available too.
